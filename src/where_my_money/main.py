@@ -58,6 +58,24 @@ def cards():
     return {"items": service.list_cards()}
 
 
+@app.post("/cards")
+def create_card(payload: dict):
+    for key in ("card_id", "issuer", "alias", "billing_day"):
+        if key not in payload:
+            raise HTTPException(status_code=400, detail=f"{key} is required")
+    return service.create_card(
+        card_id=payload["card_id"],
+        issuer=payload["issuer"],
+        alias=payload["alias"],
+        billing_day=int(payload["billing_day"]),
+    )
+
+
+@app.delete("/cards/{card_id}")
+def delete_card(card_id: str):
+    return service.delete_card(card_id)
+
+
 @app.patch("/cards/{card_id}/alias")
 def update_alias(card_id: str, payload: dict):
     alias = payload.get("alias")
@@ -76,3 +94,13 @@ def update_active(card_id: str, payload: dict):
 @app.get("/cards/summary")
 def cards_summary(period: str = "this_month"):
     return service.cards_summary(period=period)
+
+
+@app.post("/sync/transactions")
+def sync_transactions():
+    return service.sync_transactions()
+
+
+@app.get("/alerts/preview")
+def alerts_preview():
+    return service.alert_preview()

@@ -22,9 +22,13 @@ uvicorn where_my_money.main:app --reload
 - `GET /spend/today`
 - `GET /billing/upcoming`
 - `GET /cards`
+- `POST /cards`
+- `DELETE /cards/{card_id}` (soft delete)
 - `PATCH /cards/{card_id}/alias`
 - `PATCH /cards/{card_id}/active`
 - `GET /cards/summary`
+- `POST /sync/transactions`
+- `GET /alerts/preview`
 
 ## Development guardrails
 
