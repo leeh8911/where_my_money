@@ -17,7 +17,11 @@ description: Use for any development task in this repository. Enforce small freq
 3. **테스트 우선/최소 테스트 보장**.
    - 코드 변경 시 관련 테스트를 반드시 추가하거나 보강한다.
    - 완료 전 테스트 실행 결과를 확인한다.
-4. **성공 주장 금지**.
+4. **TODO 운영 규칙 준수**.
+   - 할 일은 `docs/todos.md`에서 관리한다.
+   - 완료된 항목은 `docs/todos_done.md`로 이동하고 완료 시점(일시)을 기록한다.
+   - 항목이 많아지면 `docs/todos_done_phaseX.md` 형식으로 phase별 분리 가능하다.
+5. **성공 주장 금지**.
    - 테스트 실행 결과 없이 "완료", "정상 동작"을 주장하지 않는다.
 
 ## 기본 워크플로우
