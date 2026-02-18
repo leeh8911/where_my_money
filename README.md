@@ -8,9 +8,23 @@ Python package template for tracking and analyzing personal spending.
 python -m venv .venv
 source .venv/bin/activate
 pip install -U pip
-pip install -e .
+pip install -e .[dev]
 pytest -q
 ```
+
+## Run API server
+
+```bash
+uvicorn where_my_money.main:app --reload
+```
+
+주요 엔드포인트:
+- `GET /spend/today`
+- `GET /billing/upcoming`
+- `GET /cards`
+- `PATCH /cards/{card_id}/alias`
+- `PATCH /cards/{card_id}/active`
+- `GET /cards/summary`
 
 ## Development guardrails
 
